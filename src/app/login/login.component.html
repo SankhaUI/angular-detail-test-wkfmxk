@@ -1,0 +1,70 @@
+<form #loginForm="ngForm" (ngSubmit)="onLoginSubmit(loginForm)">
+  <div class="grid flex justify-content-center">
+    <div class="col-4 mt-6">
+      <p-card header="User Login Form">
+        <div class="grid flex-column">
+          <div class="col mb-3">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              pInputText
+              ngModel
+              name="username"
+              id="username"
+              aria-describedby="username-help"
+              required
+              email
+              class="w-full {{
+                isSubmitted && !loginForm.value.username
+                  ? ' ng-invalid ng-dirty'
+                  : ''
+              }}"
+            />
+            <span
+              *ngIf="isSubmitted && !loginForm.value.username"
+              class="p-error"
+              >This is a required field.</span
+            >
+            <span
+              *ngIf="isSubmitted && loginForm.controls.username.errors?.email"
+              >Enter a valid email address.</span
+            >
+          </div>
+          <div class="col mb-3">
+            <label for="password">Password</label>
+
+            <p-password
+              id="password"
+              type="password"
+              class="w-full"
+              ngModel
+              [feedback]="false"
+              placeholder="Password"
+              styleClass="p-password p-component p-inputwrapper p-input-icon-right"
+              [ngClass]="
+                isSubmitted && !loginForm.value.password
+                  ? ' ng-invalid ng-dirty'
+                  : ''
+              "
+              [style]="{ width: '100%' }"
+              [inputStyle]="{ width: '100%' }"
+              [toggleMask]="true"
+              name="password"
+            ></p-password>
+            <span
+              *ngIf="isSubmitted && !loginForm.value.password"
+              class="p-error"
+              >This is a required field.</span
+            >
+          </div>
+          <button
+            pButton
+            pRipple
+            label="Submit"
+            class="p-button-success"
+          ></button>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</form>
