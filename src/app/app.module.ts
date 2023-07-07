@@ -12,20 +12,11 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-
-const routes: Routes = [
-  // Other routes...
-  {
-    path: '',
-    component: LoginComponent,
-  },
-
-  { path: '**', component: LoginComponent },
-];
+import { ErrorCatchingInterceptor } from './auth/error-handle.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -40,5 +31,12 @@ const routes: Routes = [
   ],
   declarations: [MainComponent, LoginComponent],
   bootstrap: [MainComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorCatchingInterceptor,
+      multi: true,
+    },
+  ],
 })
 export class AppModule {}
