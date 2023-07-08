@@ -16,7 +16,7 @@ export class DashboardService {
   constructor(private http: HttpClient) {}
   public fakeInterCeptopcall(): Observable<FakeIncerceptopType> {
     return this.http.get<FakeIncerceptopType>(
-      'https://jsonplaceholder.typicode.com/posts/1'
+      'https://jsonplaceholder-errrr.typicode.com/posts/1'
     );
   }
 }
