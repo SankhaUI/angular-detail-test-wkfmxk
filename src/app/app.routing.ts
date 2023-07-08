@@ -14,6 +14,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+  {
+    path: 'product-details/:id',
+    loadChildren: () =>
+      import('./product/product.module').then((m) => m.ProductModule),
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
