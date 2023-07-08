@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
-import { CanDeactivateGuard } from './auth/can-deactivate.guard';
-//import { ConfirmationGuard } from './auth/can-deactivate.guard';
 
 const routes: Routes = [
   // Other routes...

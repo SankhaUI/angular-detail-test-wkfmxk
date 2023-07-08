@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
   productId: string | null;
   isDirty: boolean = true;
   productDetailsForm: FormGroup;
+  darty: boolean = false;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -50,6 +51,7 @@ export class ProductComponent implements OnInit {
   ngOnDestroy() {
     this.isAuthenticateUser.unsubscribe();
   }
+
   getProductData() {
     if (this.productId) {
       const product = this.productList?.filter(
