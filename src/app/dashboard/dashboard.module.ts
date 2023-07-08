@@ -5,6 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     TableModule,
     InputTextModule,
+    HttpClientModule,
   ],
   declarations: [DashboardComponent],
 })

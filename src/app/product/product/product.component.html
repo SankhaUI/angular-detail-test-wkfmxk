@@ -1,0 +1,166 @@
+<form [formGroup]="productDetailsForm" (ngSubmit)="submitproductDetailsForm()">
+  <div class="grid flex justify-content-center">
+    <div class="col-4 mt-6">
+      <p-card header="User Login Form">
+        <div class="grid flex-column">
+          <div class="p-field p-col-12">
+            <label>Name</label>
+            <input
+              type=" text "
+              pInputText
+              id="name"
+              formControlName="nameControlerInput"
+              required
+              class="w-full mb-3{{
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.nameControlerInput === ''
+                  ? 'ng-invalid ng-dirty'
+                  : ''
+              }}"
+            />
+            <small
+              class="p-error"
+              *ngIf="
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.nameControlerInput === ''
+              "
+            >
+              This field is required
+            </small>
+          </div>
+
+          <div class="p-field p-col-12">
+            <label>Type</label>
+            <input
+              type=" text "
+              pInputText
+              id="type"
+              formControlName="typeControlerInput"
+              required
+              class="w-full mb-3{{
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.typeControlerInput === ''
+                  ? 'ng-invalid ng-dirty'
+                  : ''
+              }}"
+            />
+            <small
+              class="p-error"
+              *ngIf="
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.typeControlerInput === ''
+              "
+            >
+              This field is required
+            </small>
+          </div>
+
+          <div class="p-field p-col-12">
+            <label>Price</label>
+            <input
+              type=" text "
+              pInputText
+              id="price"
+              formControlName="priceControlerInput"
+              required
+              class="w-full mb-3{{
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.priceControlerInput === ''
+                  ? 'ng-invalid ng-dirty'
+                  : ''
+              }}"
+            />
+            <small
+              class="p-error"
+              *ngIf="
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.priceControlerInput === ''
+              "
+            >
+              This field is required
+            </small>
+          </div>
+
+          <div class="p-field p-col-12">
+            <label>Units</label>
+            <input
+              type=" text "
+              pInputText
+              id="units"
+              formControlName="unitsControlerInput"
+              required
+              class="w-full mb-3{{
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.unitsControlerInput === ''
+                  ? 'ng-invalid ng-dirty'
+                  : ''
+              }}"
+            />
+            <small
+              class="p-error"
+              *ngIf="
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.unitsControlerInput === ''
+              "
+            >
+              This field is required
+            </small>
+          </div>
+
+          <div class="p-field p-col-12">
+            <label>Manufacturing</label>
+            <input
+              type=" text "
+              pInputText
+              id="manufacturing"
+              formControlName="manufacturingControlerInput"
+              required
+              class="w-full mb-3{{
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.manufacturingControlerInput === ''
+                  ? 'ng-invalid ng-dirty'
+                  : ''
+              }}"
+            />
+            <small
+              class="p-error"
+              *ngIf="
+                !productDetailsForm.valid &&
+                submitted &&
+                productDetailsForm.value.manufacturingControlerInput === ''
+              "
+            >
+              This field is required
+            </small>
+          </div>
+          <div class="flex">
+            <button
+              pButton
+              pRipple
+              label="Submit"
+              class="p-button-success mr-1"
+            ></button>
+
+            <button
+              pButton
+              pRipple
+              label="Back"
+              class="p-button-primary ml-1"
+              routerLink="/dashboard"
+            ></button>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</form>
+<p-toast key="tl"></p-toast>

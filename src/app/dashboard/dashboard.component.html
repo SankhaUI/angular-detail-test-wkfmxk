@@ -99,8 +99,14 @@
       </ng-template>
       <ng-template pTemplate="body" let-product>
         <tr>
-          <td alignFrozen="left" pFrozenColumn [frozen]="frozen.name" (click)="onproductNameClick(product)">
-            {{ product.name }}
+          <td
+            alignFrozen="left"
+            class="cursor-pointer"
+            pFrozenColumn
+            [frozen]="frozen.name"
+            (click)="onproductNameClick(product)"
+          >
+            <u class="cursor-pointer"> {{ product.name }}</u>
           </td>
           <td alignFrozen="left" pFrozenColumn [frozen]="frozen.type">
             {{ product.type }}

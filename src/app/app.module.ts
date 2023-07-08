@@ -14,6 +14,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ErrorCatchingInterceptor } from './auth/error-handle.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     PasswordModule,
     ToggleButtonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   declarations: [MainComponent, LoginComponent],
   bootstrap: [MainComponent],
