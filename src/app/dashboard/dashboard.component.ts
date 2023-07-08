@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.isAuthenticateUser = this.authService.authenticatedUser.subscribe(
       (resp) => {
         if (!resp.isAuthenticated) {
-          //this.router.navigate(['/']);
+          this.router.navigate(['/']);
         }
       }
     );

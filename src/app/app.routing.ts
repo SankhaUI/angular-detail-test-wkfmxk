@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth/auth.guard';
+import { CanDeactivateGuard } from './auth/can-deactivate.guard';
+//import { ConfirmationGuard } from './auth/can-deactivate.guard';
 
 const routes: Routes = [
   // Other routes...
@@ -13,11 +16,13 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'product-details/:id',
     loadChildren: () =>
       import('./product/product.module').then((m) => m.ProductModule),
+    canActivate: [AuthGuard],
   },
 ];
 @NgModule({

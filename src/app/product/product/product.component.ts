@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Subscriber, Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { ProductListType } from '../../dashboard/dashboard.component';
 import { productListdata } from '../../../assets/data';
 import { AuthService, User } from '../../services/auth.service';
@@ -18,20 +18,23 @@ export class ProductComponent implements OnInit {
   submitted: boolean;
   productList: ProductListType[];
   productId: string | null;
+  isDirty: boolean = true;
+  productDetailsForm: FormGroup;
   constructor(
+    private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private messageService: MessageService
   ) {}
-  productDetailsForm: FormGroup;
+
   ngOnInit() {
     this.productList = productListdata;
     this.productId = this.route.snapshot.paramMap.get('id');
     this.isAuthenticateUser = this.authService.authenticatedUser.subscribe(
       (resp) => {
         if (!resp.isAuthenticated) {
-          //this.router.navigate(['/']);
+          this.router.navigate(['/']);
         }
       }
     );
