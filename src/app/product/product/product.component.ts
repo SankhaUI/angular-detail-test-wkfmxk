@@ -68,11 +68,14 @@ export class ProductComponent implements OnInit {
   }
   submitproductDetailsForm() {
     this.submitted = true;
-    this.messageService.add({
-      key: 'tl',
-      severity: 'success',
-      summary: 'Success',
-      detail: 'Data will be saved with Real APIS',
-    });
+    if (this.productDetailsForm.valid) {
+      this.submitted = false;
+      this.messageService.add({
+        key: 'tl',
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Data will be saved with Real APIS',
+      });
+    }
   }
 }
